@@ -1,0 +1,19 @@
+apiVersion: apps/v1 #ver qual é o grupo que o que vc quer fazer lá na documentação da api do kubernets
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
